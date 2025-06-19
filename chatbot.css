@@ -1,0 +1,18 @@
+.suggestions-title {
+  text-align: center;
+}
+.suggestions-container {
+  border-top: 1px solid var(--gray);
+  background-color: var(--white);
+  padding: 8px 0;
+  max-height: 110px;      /* Altura fija para limitar */
+  overflow-y: auto;       /* Scroll vertical si sobrepasa la altura */
+}
+
+#quick-questions {
+  display: flex;
+  flex-wrap: wrap;        /* Permite que las preguntas bajen a otra línea */
+  gap: 6px;
+  padding: 0 12px;
+}
+
