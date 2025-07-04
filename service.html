@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <title>Roberta's - Servicios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Comparación entre Roberta's Chalet y Lille en Zacatlán, Puebla">
+    <meta name="keywords" content="cabañas, zacatlán, renta, chalet, lille, comparación">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -24,6 +25,237 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Estilos generales */
+        :root {
+            --color-primary: #79b52f;
+            --color-secondary: #5a8f29;
+            --color-light: #f0f7e9;
+            --color-dark: #333;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navbar y header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/cabana-bg.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        
+        /* Contenedor de comparación */
+        .comparison-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        /* Tarjetas de cabañas */
+        .cabin-card {
+            flex: 1 1 400px;
+            max-width: 500px;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .cabin-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Cabeceras de las tarjetas */
+        .cabin-header {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .chalet-header {
+            background-color: var(--color-primary);
+        }
+        
+        .lille-header {
+            background-color: var(--color-secondary);
+        }
+        
+        /* Imágenes */
+        .cabin-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        /* Detalles de las cabañas */
+        .cabin-details {
+            padding: 25px;
+        }
+        
+        .cabin-details h2 {
+            color: var(--color-dark);
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .feature-list {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .feature-icon {
+            margin-right: 10px;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+        
+        /* Precios */
+        .price-box {
+            background: var(--color-light);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin: 5px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Sección de recomendación */
+        .recommendation {
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #e8f4ea;
+            border-radius: 10px;
+            border-left: 5px solid var(--color-primary);
+            max-width: 800px;
+        }
+        
+        .recommendation h2 {
+            color: var(--color-dark);
+            margin-bottom: 20px;
+        }
+        
+        /* Botón CTA */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: white;
+        }
+        
+        /* Amenidades */
+        .amenities .service-item {
+            transition: all 0.3s;
+            border-radius: 10px;
+        }
+        
+        .amenities .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .cabin-card {
+                flex: 1 1 100%;
+                min-width: 100%;
+            }
+            
+            .cabin-header {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+            
+            .cabin-details {
+                padding: 20px;
+            }
+            
+            .cabin-details h2 {
+                font-size: 1.2rem;
+            }
+            
+            .price {
+                font-size: 1.5rem;
+            }
+            
+            .recommendation {
+                margin: 30px 15px;
+                padding: 20px;
+            }
+            
+            .comparison-container {
+                padding: 10px;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cabin-image {
+                height: 200px;
+            }
+            
+            .feature-item {
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .page-header {
+                min-height: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,14 +278,12 @@
                         <a class="text-primary px-3" href="https://www.airbnb.mx/rooms/44634092?search_mode=regular_search&adults=1&check_in=2025-03-23&check_out=2025-03-28&children=0&infants=0&source_impression_id=p3_1742498719_P3m6G-9Hez8qjTl7&previous_page_section_name=1000&heroPhotoId=1497662556" target="_BLANK">
                             <i class="fab fa-airbnb"></i>
                         </a>
-                    
                         <a class="text-primary px-3" href="https://wa.me/525559024785" target="_BLANK">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a class="text-primary px-3" href="https://www.instagram.com/rentacabana_robertas_zacatlan?igsh=MTA4d3JndzdieWtheA==" target="_BLANK">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        
                     </div>
                 </div>
             </div>
@@ -61,13 +291,12 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">TRAVEL</span>ER</h1>
+                    <h1 class="m-0 text-primary"><span class="text-dark">Roberta</span>'s</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -78,7 +307,6 @@
                         <a href="about.html" class="nav-item nav-link">Nosotros</a>
                         <a href="service.html" class="nav-item nav-link active">Servicios</a>
                         <a href="package.html" class="nav-item nav-link">Paquetes</a>
-                        
                         <a href="contact.html" class="nav-item nav-link">Contacto</a>
                     </div>
                 </div>
@@ -86,7 +314,6 @@
         </div>
     </div>
     <!-- Navbar End -->
-
 
     <!-- Header Start -->
     <div class="container-fluid page-header">
@@ -103,408 +330,205 @@
     </div>
     <!-- Header End -->
 
-
     <!-- Booking Start -->
-    <!-- Booking Start -->
-<div class="container-fluid booking mt-5 pb-5">
-    <div class="container pb-5">
-        <div class="bg-light shadow rounded-lg" style="padding: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.1)!important;">
-            <form id="reservaForm" onsubmit="enviarWhatsApp(event)">
-                <div class="row align-items-center">
-                    <!-- Primera fila de campos -->
-                    <div class="col-md-12 mb-4">
-                        <div class="row">
-                            <!-- Nombre completo -->
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <label for="nombreCliente" class="form-label text-primary mb-1">Nombre completo</label>
-                                <input type="text" class="form-control p-3 border-primary" id="nombreCliente" placeholder="Ej: Juan Pérez" required
-                                       style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
-                            </div>
-                            
-                            <!-- Teléfono -->
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <label for="telefonoCliente" class="form-label text-primary mb-1">Teléfono celular</label>
-                                <input type="tel" class="form-control p-3 border-primary" id="telefonoCliente" placeholder="Ej: 55 1234 5678" required
-                                       style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Segunda fila de campos -->
-                    <div class="col-md-12">
-                        <div class="row">
-                            <!-- Cabaña -->
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="cabana" class="form-label text-primary mb-1">Cabaña</label>
-                                <select class="form-select p-3 border-primary" id="cabana" required
-                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
-                                    <option value="" selected disabled>Seleccione una opción</option>
-                                    <option value="Roberta's Chalett">Roberta's Chalett</option>
-                                    <option value="Roberta's Lille">Roberta's Lille</option>
-                                </select>
-                            </div>
-                            
-                            <!-- Check-in -->
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="checkin" class="form-label text-primary mb-1">Check-in</label>
-                                <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkin" 
-                                           placeholder="Fecha de entrada" data-target="#date1" data-toggle="datetimepicker" required
-                                           style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
+    <div class="container-fluid booking mt-5 pb-5">
+        <div class="container pb-5">
+            <div class="bg-light shadow rounded-lg" style="padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1)!important;">
+                <form id="reservaForm" onsubmit="enviarWhatsApp(event)">
+                    <div class="row align-items-center">
+                        <div class="col-md-12 mb-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="nombreCliente" class="form-label text-primary mb-1">Nombre completo</label>
+                                    <input type="text" class="form-control p-3 border-primary" id="nombreCliente" placeholder="Ej: Juan Pérez" required>
+                                </div>
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="telefonoCliente" class="form-label text-primary mb-1">Teléfono celular</label>
+                                    <input type="tel" class="form-control p-3 border-primary" id="telefonoCliente" placeholder="Ej: 55 1234 5678" required>
                                 </div>
                             </div>
-                            
-                            <!-- Check-out -->
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="checkout" class="form-label text-primary mb-1">Check-out</label>
-                                <div class="date" id="date2" data-target-input="nearest">
-                                    <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkout" 
-                                           placeholder="Fecha de salida" data-target="#date2" data-toggle="datetimepicker" required
-                                           style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <label for="cabana" class="form-label text-primary mb-1">Cabaña</label>
+                                    <select class="form-select p-3 border-primary" id="cabana" required>
+                                        <option value="" selected disabled>Seleccione una opción</option>
+                                        <option value="Roberta's Chalett">Roberta's Chalett</option>
+                                        <option value="Roberta's Lille">Roberta's Lille</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <label for="checkin" class="form-label text-primary mb-1">Check-in</label>
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkin" 
+                                               placeholder="Fecha de entrada" data-target="#date1" data-toggle="datetimepicker" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <label for="checkout" class="form-label text-primary mb-1">Check-out</label>
+                                    <div class="date" id="date2" data-target-input="nearest">
+                                        <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkout" 
+                                               placeholder="Fecha de salida" data-target="#date2" data-toggle="datetimepicker" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <label for="cantidad" class="form-label text-primary mb-1">Personas</label>
+                                    <select class="form-select p-3 border-primary" id="cantidad" required>
+                                        <option value="" selected disabled>Seleccione</option>
+                                        <option value="1">1 persona</option>
+                                        <option value="2">2 personas</option>
+                                        <option value="3">3 personas</option>
+                                        <option value="4">4 personas</option>
+                                        <option value="5">5 personas</option>
+                                        <option value="6">6 personas</option>
+                                        <option value="7">7 personas</option>
+                                        <option value="8">8 personas</option>
+                                        <option value="9">9 personas</option>
+                                    </select>
                                 </div>
                             </div>
-                            
-                            <!-- Cantidad de personas -->
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="cantidad" class="form-label text-primary mb-1">Personas</label>
-                                <select class="form-select p-3 border-primary" id="cantidad" required
-                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
-                                    <option value="" selected disabled>Seleccione</option>
-                                    <option value="1">1 persona</option>
-                                    <option value="2">2 personas</option>
-                                    <option value="3">3 personas</option>
-                                    <option value="4">4 personas</option>
-                                    <option value="5">5 personas</option>
-                                    <option value="6">6 personas</option>
-                                    <option value="7">7 personas</option>
-                                    <option value="8">8 personas</option>
-                                    <option value="9">9 personas</option>
-                                </select>
-                            </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <button class="btn btn-primary btn-block py-3" type="submit">
+                                <i class="fas fa-paper-plane me-2"></i> Enviar Reserva
+                            </button>
                         </div>
                     </div>
-                    
-                    <!-- Botón de envío -->
-                    <div class="col-md-12 mt-4">
-                        <button class="btn btn-primary btn-block py-3" type="submit" 
-                                style="border-radius: 8px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s;">
-                            <i class="fas fa-paper-plane me-2"></i> Enviar Reserva
-                        </button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
-<script>
-function enviarWhatsApp(event) {
-    event.preventDefault();
-    
-    // Obtener los valores del formulario
-    const nombre = document.getElementById('nombreCliente').value;
-    const telefono = document.getElementById('telefonoCliente').value;
-    const cabana = document.getElementById('cabana').value;
-    const checkin = document.getElementById('checkin').value;
-    const checkout = document.getElementById('checkout').value;
-    const cantidad = document.getElementById('cantidad').value;
-    
-    // Crear mensaje para WhatsApp
-    const mensaje = `*Nueva Reserva*%0A%0A` +
-                    `*Nombre:* ${nombre}%0A` +
-                    `*Teléfono:* ${telefono}%0A` +
-                    `*Cabaña:* ${cabana}%0A` +
-                    `*Check-in:* ${checkin}%0A` +
-                    `*Check-out:* ${checkout}%0A` +
-                    `*Personas:* ${cantidad}`;
-    
-    // Número de WhatsApp de la empresa
-    const whatsappNumber = '525559024785';
-    
-    // Abrir WhatsApp con el mensaje
-    window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, '_blank');
-    
-    // Opcional: Resetear el formulario después del envío
-    document.getElementById('reservaForm').reset();
-    
-    // Opcional: Mostrar mensaje de confirmación
-    alert('Gracias por tu reserva. Serás contactado pronto por WhatsApp.');
-}
-</script>
     <!-- Booking End -->
-<style>
-        :root {
-            --color-primary: #79b52f;
-            --color-secondary: #79b52f;
-            --color-light: #79b52f;
-            --color-dark: #333;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--color-dark);
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white;
-            border-radius: 10px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .comparison-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .cabin-card {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .cabin-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .cabin-header {
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .chalet-header {
-            background-color: var(--color-primary);
-        }
-        
-        .lille-header {
-            background-color: var(--color-secondary);
-        }
-        
-        .cabin-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .cabin-details {
-            padding: 20px;
-        }
-        
-        .feature-list {
-            margin: 20px 0;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #eee;
-        }
-        
-        .feature-icon {
-            margin-right: 10px;
-            color: var(--color-primary);
-            font-size: 1.2rem;
-        }
-        
-        .price-box {
-            background: var(--color-light);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--color-primary);
-        }
-        
-        .recommendation {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #e8f4ea;
-            border-radius: 10px;
-            border-left: 5px solid var(--color-primary);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--color-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        
-        .cta-button:hover {
-            background-color: #1f6b3d;
-        }
-        
-        @media (max-width: 768px) {
-            .comparison-container {
-                flex-direction: column;
-            }
-            
-            .cabin-card {
-                min-width: 100%;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <h1>Roberta's Chalet & Lille</h1>
-        <p class="subtitle">Descubre las diferencias entre nuestras cabañas en Zacatlán</p>
-    </header>
-    
-    <div class="comparison-container">
-        <!-- Chalet Card -->
-        <div class="cabin-card">
-            <div class="cabin-header chalet-header">
-                ROBERTA'S CHALET
-            </div>
-            <img src="https://a0.muscache.com/im/pictures/fd817a89-341b-4cdb-89e3-db55226ad517.jpg?im_w=720">
-            <div class="cabin-details">
-                <h2><i class="fas fa-home"></i> Capacidad</h2>
-                <p>Hasta 9 personas - Ideal para familias grandes o grupos</p>
-                
-                <h2><i class="fas fa-bed"></i> Dormitorios</h2>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        2 recámaras separadas
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        4 camas matrimoniales + 1 individual
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        2 baños completos
-                    </li>
-                </ul>
-                
-                <h2><i class="fas fa-utensils"></i> Espacios</h2>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Cocina completa con barra
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Sala-comedor amplio
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Fogatero exterior grande
-                    </li>
-                </ul>
-                
-                <div class="price-box" style="font-size: 0.7rem; line-height: 1.1; text-align: center;">
-    <p style="margin: 0.1rem 0;">Desde</p>
-    <div style="font-size: 1.1rem; font-weight: 600; margin: 0.1rem 0;">$5,800</div>
-    <p style="margin: 0.1rem 0;">2 noches</p>
 
+    <!-- Comparison Section Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="display-4 mb-4">Roberta's Chalet & Lille</h1>
+                <p class="lead">Descubre las diferencias entre nuestras cabañas en Zacatlán</p>
+            </div>
+            
+            <div class="comparison-container">
+                <!-- Chalet Card -->
+                <div class="cabin-card">
+                    <div class="cabin-header chalet-header">
+                        ROBERTA'S CHALET
+                    </div>
+                    <img src="https://a0.muscache.com/im/pictures/fd817a89-341b-4cdb-89e3-db55226ad517.jpg?im_w=720" alt="Roberta's Chalet" class="cabin-image">
+                    <div class="cabin-details">
+                        <h2><i class="fas fa-home feature-icon"></i> Capacidad</h2>
+                        <p>Hasta 9 personas - Ideal para familias grandes o grupos</p>
+                        
+                        <h2><i class="fas fa-bed feature-icon"></i> Dormitorios</h2>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                2 recámaras separadas
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                4 camas matrimoniales + 1 individual
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                2 baños completos
+                            </li>
+                        </ul>
+                        
+                        <h2><i class="fas fa-utensils feature-icon"></i> Espacios</h2>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Cocina completa con barra
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Sala-comedor amplio
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Fogatero exterior grande
+                            </li>
+                        </ul>
+                        
+                        <div class="price-box">
+                            <p>Desde</p>
+                            <div class="price">$5,800</div>
+                            <p>2 noches</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lille Card -->
+                <div class="cabin-card">
+                    <div class="cabin-header lille-header">
+                        ROBERTA'S LILLE
+                    </div>
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipP7VBSwXmjGkFVKr7S0k96xmo1_FCgPb1Fk9Deq=s680-w680-h510" alt="Roberta's Lille" class="cabin-image">
+                    <div class="cabin-details">
+                        <h2><i class="fas fa-home feature-icon"></i> Capacidad</h2>
+                        <p>Hasta 4 personas - Perfecta para parejas o familias pequeñas</p>
+                        
+                        <h2><i class="fas fa-bed feature-icon"></i> Dormitorios</h2>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                1 recámara con litera doble
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                2 camas matrimoniales
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                2 baños optimizados
+                            </li>
+                        </ul>
+                        
+                        <h2><i class="fas fa-utensils feature-icon"></i> Espacios</h2>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Cocina equipada compacta
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Ambiente íntimo y acogedor
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
+                                Brincolín
+                            </li>
+                        </ul>
+                        
+                        <div class="price-box">
+                            <p>Desde</p>
+                            <div class="price">$3,200</div>
+                            <p>2 noches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommendation">
+                <h2><i class="fas fa-question-circle feature-icon"></i> ¿Cuál elegir?</h2>
+                <p><strong>Elije Roberta's Chalet si...</strong> Viajas con familia grande o amigos, quieres más privacidad entre recámaras o prefieres espacios abiertos.</p>
+                <p><strong>Elije Roberta's Lille si...</strong> Buscas una experiencia íntima (luna de miel, aniversario), te gusta el sonido del río o viajas con mascotas.</p>
+                <p><strong>Tip:</strong> Si tu grupo es de 13 personas, ¡puedes rentar ambas cabañas!</p>
+                
+                <div class="text-center mt-4">
+                    <a href="tel:+525559024785" class="cta-button">
+                        <i class="fas fa-phone-alt mr-2"></i> Reserva por teléfono
+                    </a>
                 </div>
             </div>
         </div>
-        
-        <!-- Lille Card -->
-        <div class="cabin-card">
-            <div class="cabin-header lille-header">
-                ROBERTA'S LILLE
-            </div>
-            <img src="https://lh3.googleusercontent.com/p/AF1QipP7VBSwXmjGkFVKr7S0k96xmo1_FCgPb1Fk9Deq=s680-w680-h510" style="width: 720px; height: auto;" alt="Lille" class="cabin-image">
-            <div class="cabin-details">
-                <h2><i class="fas fa-home"></i> Capacidad</h2>
-                <p>Hasta 4 personas - Perfecta para parejas o familias pequeñas</p>
-                
-                <h2><i class="fas fa-bed"></i> Dormitorios</h2>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        1 recámara con litera doble
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        2 camas matrimoniales
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        2 baños optimizados
-                    </li>
-                </ul>
-                
-                <h2><i class="fas fa-utensils"></i> Espacios</h2>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Cocina equipada compacta
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Ambiente íntimo y acogedor
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon"><i class="fas fa-check-circle"></i></span>
-                        Brincolín
-                    </li>
-                </ul>
-                
-               <div class="price-box" style="font-size: 0.7rem; line-height: 1.1;">
-    <p style="margin: 0.1rem 0;">Desde</p>
-    <div style="font-size: 1.1rem; font-weight: 600; margin: 0.1rem 0;">$3,200</div>
-    <p style="margin: 0.1rem 0;">2 noches</p>
-</div>
-            </div>
-        </div>
     </div>
-    
-    <div class="recommendation">
-        <h2><i class="fas fa-question-circle"></i> ¿Cuál elegir?</h2>
-        <p><strong>Elije Roberta's Chalet si...</strong> Viajas con familia grande o amigos, quieres más privacidad entre recámaras o prefieres espacios abiertos.</p>
-        <p><strong>Elije Roberta's Lille si...</strong> Buscas una experiencia íntima (luna de miel, aniversario), te gusta el sonido del río o viajas con mascotas.</p>
-        <p><strong>Tip:</strong>Si tu grupo es de 13 personas, ¡puedes rentar ambas cabañas!</p>
-        
-        <a href="tel:+525559024785" class="cta-button">Reserva por teléfono</a>
-    </div>
+    <!-- Comparison Section End -->
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
+    <!-- Amenities Start -->
+    <div class="container-fluid py-5 amenities">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios</h6>
@@ -514,78 +538,68 @@ function enviarWhatsApp(event) {
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-wifi mx-auto mb-4"></i>
-        <h5 class="mb-2">WiFi</h5>
+                        <h5 class="mb-2">WiFi</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-swimming-pool mx-auto mb-4"></i>
-        <h5 class="mb-2">Alberca</h5>
-                        
+                        <h5 class="mb-2">Alberca</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-umbrella-beach mx-auto mb-4"></i>
-        <h5 class="mb-2">Áreas al aire libre</h5>
-                        
+                        <h5 class="mb-2">Áreas al aire libre</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-fire mx-auto mb-4"></i>
-        <h5 class="mb-2">Asador</h5>
-                        
+                        <h5 class="mb-2">Asador</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-paw mx-auto mb-4"></i>
-        <h5 class="mb-2">Pet Friendly</h5>
-                        
+                        <h5 class="mb-2">Pet Friendly</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-fire mx-auto mb-4"></i>
-        <h5 class="mb-2">Área para fogatas</h5>
-                        
+                        <h5 class="mb-2">Área para fogatas</h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+    <!-- Amenities End -->
 
-<!-- Chatbot Flotante -->
-<div id="chatbot-container">
-  <div id="chatbot-header">
-    <h3><i class="fas fa-tree"></i> Asistente de Roberta's</h3>
-    <div id="chatbot-actions">
-      <button id="minimize-chat"><i class="fas fa-minus"></i></button>
-      <button id="close-chat"><i class="fas fa-times"></i></button>
+    <!-- Chatbot Flotante -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            <h3><i class="fas fa-tree"></i> Asistente de Roberta's</h3>
+            <div id="chatbot-actions">
+                <button id="minimize-chat"><i class="fas fa-minus"></i></button>
+                <button id="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div id="chatbot-messages"></div>
+        <div class="suggestions-container">
+            <div class="suggestions-title">Preguntas frecuentes</div>
+            <div id="quick-questions">
+                <!-- Los botones se generan dinámicamente en JS -->
+            </div>
+        </div>
+        <div id="chatbot-input">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
-  </div>
-  <div id="chatbot-messages"></div>
-  <div class="suggestions-container">
-    <div class="suggestions-title">Preguntas frecuentes</div>
-    <div id="quick-questions">
-      <!-- Los botones se generan dinámicamente en JS -->
-    </div>
-  </div>
-  <div id="chatbot-input">
-    <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
-    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-  </div>
-</div>
-<button id="chatbot-toggle"><i class="fas fa-comments"></i> ¿Necesitas ayuda?</button>
+    <button id="chatbot-toggle"><i class="fas fa-comments"></i> ¿Necesitas ayuda?</button>
 
-<!-- Solo una vez -->
-<link rel="stylesheet" href="chatbot.css">
-<script defer src="chatbot.js"></script>
-    
-
-   <!-- Footer Start -->
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
@@ -593,7 +607,7 @@ function enviarWhatsApp(event) {
                     <h1 class="text-primary"><span class="text-white">Roberta</span>'s</h1>
                 </a>
                 <p>Escápate a la naturaleza, descansa en confort</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;"> Siguenos</h6>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Síguenos</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.airbnb.mx/rooms/44634092?search_mode=regular_search&adults=1&check_in=2025-03-23&check_out=2025-03-28&children=0&infants=0&source_impression_id=p3_1742498719_P3m6G-9Hez8qjTl7&previous_page_section_name=1000&heroPhotoId=1497662556" target="_BLANK"><i class="fab fa-airbnb"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/robertogomezrobles" target="_BLANK"><i class="fab fa-facebook-f"></i></a>
@@ -601,21 +615,19 @@ function enviarWhatsApp(event) {
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;"></h5>
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Enlaces rápidos</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    
+                    <a class="text-white-50 mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                    <a class="text-white-50 mb-2" href="about.html"><i class="fa fa-angle-right mr-2"></i>Nosotros</a>
+                    <a class="text-white-50 mb-2" href="service.html"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                    <a class="text-white-50 mb-2" href="package.html"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                    <a class="text-white-50" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contacto</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;"></h5>
-                <div class="d-flex flex-column justify-content-start">
-                    
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contactanos</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>  Carr Zacatlán-San Miguel Tenango Km 6, 73316 Pue.</p>
-                <p><i class="fa fa-phone-alt mr-2"></i> 55 1139 3996</p>
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contacto</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Carr Zacatlán-San Miguel Tenango Km 6, 73316 Pue.</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+52 55 1139 3996</p>
                 <p><i class="fa fa-envelope mr-2"></i>gorr720828@gmail.com</p>
             </div>
         </div>
@@ -623,21 +635,11 @@ function enviarWhatsApp(event) {
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; <a href="#">Roberta's Chalett</a>. All Rights Reserved.</a>
-                </p>
-            </div>
-            <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50"><a href="https://htmlcodex.com"></a>
-                </p>
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">Roberta's Chalett</a>. Todos los derechos reservados.</p>
             </div>
         </div>
     </div>
     <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -654,6 +656,59 @@ function enviarWhatsApp(event) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+    <!-- Custom Scripts -->
+    <script>
+        // Función para enviar formulario por WhatsApp
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombreCliente').value;
+            const telefono = document.getElementById('telefonoCliente').value;
+            const cabana = document.getElementById('cabana').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const cantidad = document.getElementById('cantidad').value;
+            
+            const mensaje = `*Nueva Reserva*%0A%0A` +
+                            `*Nombre:* ${nombre}%0A` +
+                            `*Teléfono:* ${telefono}%0A` +
+                            `*Cabaña:* ${cabana}%0A` +
+                            `*Check-in:* ${checkin}%0A` +
+                            `*Check-out:* ${checkout}%0A` +
+                            `*Personas:* ${cantidad}`;
+            
+            const whatsappNumber = '525559024785';
+            window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, '_blank');
+            
+            document.getElementById('reservaForm').reset();
+            alert('Gracias por tu reserva. Serás contactado pronto por WhatsApp.');
+        }
+
+        // Igualar altura de las tarjetas
+        function equalizeCardHeights() {
+            const cards = document.querySelectorAll('.cabin-card');
+            let maxHeight = 0;
+            
+            cards.forEach(card => {
+                card.style.height = 'auto';
+            });
+            
+            cards.forEach(card => {
+                if (card.offsetHeight > maxHeight) {
+                    maxHeight = card.offsetHeight;
+                }
+            });
+            
+            if (window.innerWidth > 768) {
+                cards.forEach(card => {
+                    card.style.height = maxHeight + 'px';
+                });
+            }
+        }
+        
+        window.addEventListener('load', equalizeCardHeights);
+        window.addEventListener('resize', equalizeCardHeights);
+    </script>
+</body>
 </html>
