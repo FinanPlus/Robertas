@@ -448,32 +448,254 @@ function enviarWhatsApp(event) {
     }
 </style>
 
-<!-- Chatbot Flotante -->
-<div id="chatbot-container">
-  <div id="chatbot-header">
-    <h3><i class="fas fa-tree"></i> Asistente de Roberta's</h3>
-    <div id="chatbot-actions">
-      <button id="minimize-chat"><i class="fas fa-minus"></i></button>
-      <button id="close-chat"><i class="fas fa-times"></i></button>
-    </div>
-  </div>
-  <div id="chatbot-messages"></div>
-  <div class="suggestions-container">
-    <div class="suggestions-title">Preguntas frecuentes</div>
-    <div id="quick-questions">
-      <!-- Los botones se generan dinámicamente en JS -->
-    </div>
-  </div>
-  <div id="chatbot-input">
-    <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
-    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-  </div>
-</div>
-<button id="chatbot-toggle"><i class="fas fa-comments"></i> ¿Necesitas ayuda?</button>
 
-<!-- Solo una vez -->
-<link rel="stylesheet" href="chatbot.css">
-<script defer src="chatbot.js"></script>
+<!-- WhatsApp Chat Widget -->
+<div class="whatsapp-widget">
+    <div class="whatsapp-header">
+        <div class="whatsapp-title">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Chatea con nosotros</h3>
+        </div>
+        <button class="close-chat">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="whatsapp-body">
+        <div class="welcome-message">
+            <p>¡Hola! ¿En qué podemos ayudarte? Escríbenos directamente por WhatsApp y te atenderemos de inmediato.</p>
+        </div>
+        
+        <div class="quick-options">
+            <button class="quick-btn" data-message="Hola, quiero hacer una reserva">
+                <i class="fas fa-calendar-check"></i> Hacer reservación
+            </button>
+            <button class="quick-btn" data-message="¿Qué servicios incluyen las cabañas?">
+                <i class="fas fa-concierge-bell"></i> Preguntar por servicios
+            </button>
+            <button class="quick-btn" data-message="¿Tienen disponibilidad para...?">
+                <i class="fas fa-calendar-alt"></i> Consultar disponibilidad
+            </button>
+        </div>
+    </div>
+    
+    <div class="whatsapp-footer">
+        <a href="https://wa.me/5215511393996" class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+        </a>
+    </div>
+</div>
+
+<button class="whatsapp-toggle" style="display: none;">
+    <i class="fab fa-whatsapp"></i>
+</button>
+
+<style>
+    /* WhatsApp Widget Styles */
+    .whatsapp-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .whatsapp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        background-color: #79b52f;
+        color: white;
+    }
+    
+    .whatsapp-title {
+        display: flex;
+        align-items: center;
+    }
+    
+    .whatsapp-title i {
+        font-size: 22px;
+        margin-right: 10px;
+    }
+    
+    .whatsapp-title h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .close-chat {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .whatsapp-body {
+        padding: 15px;
+    }
+    
+    .welcome-message {
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .quick-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .quick-btn {
+        display: flex;
+        align-items: center;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 13px;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .quick-btn i {
+        margin-right: 8px;
+        color: #79b52f;
+        font-size: 14px;
+        min-width: 20px;
+    }
+    
+    .quick-btn:hover {
+        background: #f9f9f9;
+        border-color: #79b52f;
+    }
+    
+    .whatsapp-footer {
+        padding: 12px 15px;
+        background: #f9f9f9;
+        text-align: center;
+    }
+    
+    .whatsapp-link {
+        display: block;
+        background-color: #25D366;
+        color: white;
+        padding: 10px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+    
+    .whatsapp-link:hover {
+        background-color: #128C7E;
+    }
+    
+    .whatsapp-link i {
+        margin-right: 8px;
+    }
+    
+    .whatsapp-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25D366;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .whatsapp-widget {
+            width: calc(100% - 40px);
+            right: 20px;
+            bottom: 20px;
+        }
+        
+        .whatsapp-toggle {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    }
+</style>
+
+<script>
+    // Control del widget de WhatsApp
+    document.addEventListener('DOMContentLoaded', function() {
+        const widget = document.querySelector('.whatsapp-widget');
+        const toggleBtn = document.querySelector('.whatsapp-toggle');
+        const closeBtn = document.querySelector('.close-chat');
+        const quickBtns = document.querySelectorAll('.quick-btn');
+        
+        // Mostrar el botón toggle en móviles
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                widget.style.display = 'none';
+                toggleBtn.style.display = 'flex';
+            } else {
+                widget.style.display = 'block';
+                toggleBtn.style.display = 'none';
+            }
+        }
+        
+        // Verificar tamaño de pantalla al cargar y al redimensionar
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        
+        // Toggle del widget en móviles
+        toggleBtn.addEventListener('click', function() {
+            if (widget.style.display === 'none' || widget.style.display === '') {
+                widget.style.display = 'block';
+            } else {
+                widget.style.display = 'none';
+            }
+        });
+        
+        // Cerrar el widget
+        closeBtn.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                widget.style.display = 'none';
+            } else {
+                widget.style.display = 'none';
+                toggleBtn.style.display = 'flex';
+            }
+        });
+        
+        // Acción para los botones rápidos
+        quickBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const message = encodeURIComponent(btn.getAttribute('data-message'));
+                window.open(`https://wa.me/5215511393996?text=${message}`, '_blank');
+            });
+        });
+    });
+</script>
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
