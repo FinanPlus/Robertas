@@ -362,7 +362,8 @@
                             <div class="col-md-3 mb-3 mb-md-0">
                                 <label for="cabana" class="form-label text-primary mb-1">Cabaña</label>
                                 <select class="form-select p-3 border-primary" id="cabana" required
-                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
+                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;"
+                                        onchange="actualizarOpcionesPersonas()">
                                     <option value="" selected disabled>Seleccione una opción</option>
                                     <option value="Roberta's Chalett">Roberta's Chalett</option>
                                     <option value="Roberta's Lille">Roberta's Lille</option>
@@ -395,16 +396,8 @@
                                 <label for="cantidad" class="form-label text-primary mb-1">Personas</label>
                                 <select class="form-select p-3 border-primary" id="cantidad" required
                                         style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
-                                    <option value="" selected disabled>Seleccione</option>
-                                    <option value="1">1 persona</option>
-                                    <option value="2">2 personas</option>
-                                    <option value="3">3 personas</option>
-                                    <option value="4">4 personas</option>
-                                    <option value="5">5 personas</option>
-                                    <option value="6">6 personas</option>
-                                    <option value="7">7 personas</option>
-                                    <option value="8">8 personas</option>
-                                    <option value="9">9 personas</option>
+                                    <option value="" selected disabled>Primero seleccione cabaña</option>
+                                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
                                 </select>
                             </div>
                         </div>
@@ -424,6 +417,34 @@
 </div>
 
 <script>
+// Función para actualizar las opciones de personas según la cabaña seleccionada
+function actualizarOpcionesPersonas() {
+    const cabanaSelect = document.getElementById('cabana');
+    const cantidadSelect = document.getElementById('cantidad');
+    const cabanaSeleccionada = cabanaSelect.value;
+    
+    // Limpiar opciones actuales
+    cantidadSelect.innerHTML = '<option value="" selected disabled>Seleccione</option>';
+    
+    if (cabanaSeleccionada === "Roberta's Lille") {
+        // Máximo 4 personas para Lille
+        for (let i = 1; i <= 4; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i === 1 ? '1 persona' : `${i} personas`;
+            cantidadSelect.appendChild(option);
+        }
+    } else if (cabanaSeleccionada === "Roberta's Chalett") {
+        // Máximo 9 personas para Chalett
+        for (let i = 1; i <= 9; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i === 1 ? '1 persona' : `${i} personas`;
+            cantidadSelect.appendChild(option);
+        }
+    }
+}
+
 function setMinCheckoutDate() {
     const checkinInput = document.getElementById('checkin');
     const checkoutInput = document.getElementById('checkout');
@@ -441,22 +462,51 @@ function setMinCheckoutDate() {
 function formatDateForDisplay(dateString) {
     if (!dateString) return '';
     const date = new Date(dateString);
+    
+    // Asegurarnos de manejar correctamente la fecha
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
+    
+    // Formato: día/mes/año (ej: 15/12/2024)
     return `${day}/${month}/${year}`;
+}
+
+function validarReserva() {
+    const cabana = document.getElementById('cabana').value;
+    const cantidad = parseInt(document.getElementById('cantidad').value);
+    
+    if (!cabana) {
+        alert('Por favor, seleccione una cabaña');
+        return false;
+    }
+    
+    if (!cantidad) {
+        alert('Por favor, seleccione el número de personas');
+        return false;
+    }
+    
+    // Validar límites según la cabaña
+    if (cabana === "Roberta's Lille" && cantidad > 4) {
+        alert('Roberta\'s Lille tiene capacidad máxima de 4 personas');
+        return false;
+    }
+    
+    if (cabana === "Roberta's Chalett" && cantidad > 9) {
+        alert('Roberta\'s Chalett tiene capacidad máxima de 9 personas');
+        return false;
+    }
+    
+    return true;
 }
 
 function enviarWhatsApp(event) {
     event.preventDefault();
     
-    // Obtener los valores del formulario
-    const nombre = document.getElementById('nombreCliente').value;
-    const telefono = document.getElementById('telefonoCliente').value;
-    const cabana = document.getElementById('cabana').value;
-    const checkin = formatDateForDisplay(document.getElementById('checkin').value);
-    const checkout = formatDateForDisplay(document.getElementById('checkout').value);
-    const cantidad = document.getElementById('cantidad').value;
+    // Validar la reserva antes de enviar
+    if (!validarReserva()) {
+        return;
+    }
     
     // Validar que la fecha de checkout no sea anterior a la de checkin
     const checkinDate = new Date(document.getElementById('checkin').value);
@@ -467,7 +517,15 @@ function enviarWhatsApp(event) {
         return;
     }
     
-    // Crear mensaje para WhatsApp
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombreCliente').value;
+    const telefono = document.getElementById('telefonoCliente').value;
+    const cabana = document.getElementById('cabana').value;
+    const checkin = formatDateForDisplay(document.getElementById('checkin').value);
+    const checkout = formatDateForDisplay(document.getElementById('checkout').value);
+    const cantidad = document.getElementById('cantidad').value;
+    
+    // Crear mensaje para WhatsApp con formato día/mes/año
     const mensaje = `*Nueva Reserva*%0A%0A` +
                     `*Nombre:* ${nombre}%0A` +
                     `*Teléfono:* ${telefono}%0A` +
@@ -476,8 +534,22 @@ function enviarWhatsApp(event) {
                     `*Check-out:* ${checkout}%0A` +
                     `*Personas:* ${cantidad}`;
     
-    // Número de WhatsApp de la empresa
-    const whatsappNumber = '525559024785';
+    // NÚMERO CORREGIDO: 5511393996
+    // Formato correcto para WhatsApp en México:
+    // Si el número es 55 1139 3996, para WhatsApp es: 525511393996
+    const whatsappNumber = '525511393996';
+    
+    // Mostrar información de depuración en consola
+    console.log('=== INFORMACIÓN DE LA RESERVA ===');
+    console.log('Nombre:', nombre);
+    console.log('Teléfono:', telefono);
+    console.log('Cabaña:', cabana);
+    console.log('Check-in:', checkin);
+    console.log('Check-out:', checkout);
+    console.log('Personas:', cantidad);
+    console.log('Número WhatsApp:', whatsappNumber);
+    console.log('URL WhatsApp:', `https://wa.me/${whatsappNumber}?text=${mensaje}`);
+    console.log('================================');
     
     // Abrir WhatsApp con el mensaje
     window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, '_blank');
@@ -485,9 +557,24 @@ function enviarWhatsApp(event) {
     // Opcional: Resetear el formulario después del envío
     document.getElementById('reservaForm').reset();
     
+    // Resetear opciones de personas
+    const cantidadSelect = document.getElementById('cantidad');
+    cantidadSelect.innerHTML = '<option value="" selected disabled>Primero seleccione cabaña</option>';
+    
     // Opcional: Mostrar mensaje de confirmación
-    alert('Gracias por tu reserva. Serás contactado pronto por WhatsApp.');
+    alert('¡Reserva enviada con éxito! Se abrirá WhatsApp para que completes la confirmación.');
 }
+
+// Inicializar al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    // Establecer fecha mínima para check-in como hoy
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkin').min = today;
+    
+    // Mostrar instrucción para pruebas
+    console.log('Formulario de reserva cargado correctamente');
+    console.log('Las reservas se enviarán al número: 5511393996');
+});
 </script>
 <!-- Booking End -->
 
@@ -1029,5 +1116,6 @@ function enviarWhatsApp(event) {
     </script>
 </body>
 </html>
+
 
 
