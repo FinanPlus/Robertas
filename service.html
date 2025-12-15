@@ -331,75 +331,166 @@
     <!-- Header End -->
 
     <!-- Booking Start -->
-    <div class="container-fluid booking mt-5 pb-5">
-        <div class="container pb-5">
-            <div class="bg-light shadow rounded-lg" style="padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1)!important;">
-                <form id="reservaForm" onsubmit="enviarWhatsApp(event)">
-                    <div class="row align-items-center">
-                        <div class="col-md-12 mb-4">
-                            <div class="row">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label for="nombreCliente" class="form-label text-primary mb-1">Nombre completo</label>
-                                    <input type="text" class="form-control p-3 border-primary" id="nombreCliente" placeholder="Ej: Juan Pérez" required>
-                                </div>
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label for="telefonoCliente" class="form-label text-primary mb-1">Teléfono celular</label>
-                                    <input type="tel" class="form-control p-3 border-primary" id="telefonoCliente" placeholder="Ej: 55 1234 5678" required>
-                                </div>
+<div class="container-fluid booking mt-5 pb-5">
+    <div class="container pb-5">
+        <div class="bg-light shadow rounded-lg" style="padding: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.1)!important;">
+            <form id="reservaForm" onsubmit="enviarWhatsApp(event)">
+                <div class="row align-items-center">
+                    <!-- Primera fila de campos -->
+                    <div class="col-md-12 mb-4">
+                        <div class="row">
+                            <!-- Nombre completo -->
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="nombreCliente" class="form-label text-primary mb-1">Nombre completo</label>
+                                <input type="text" class="form-control p-3 border-primary" id="nombreCliente" placeholder="Ej: Juan Pérez" required
+                                       style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-3 mb-3 mb-md-0">
-                                    <label for="cabana" class="form-label text-primary mb-1">Cabaña</label>
-                                    <select class="form-select p-3 border-primary" id="cabana" required>
-                                        <option value="" selected disabled>Seleccione una opción</option>
-                                        <option value="Roberta's Chalett">Roberta's Chalett</option>
-                                        <option value="Roberta's Lille">Roberta's Lille</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3 mb-3 mb-md-0">
-                                    <label for="checkin" class="form-label text-primary mb-1">Check-in</label>
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkin" 
-                                               placeholder="Fecha de entrada" data-target="#date1" data-toggle="datetimepicker" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3 mb-md-0">
-                                    <label for="checkout" class="form-label text-primary mb-1">Check-out</label>
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control p-3 datetimepicker-input border-primary" id="checkout" 
-                                               placeholder="Fecha de salida" data-target="#date2" data-toggle="datetimepicker" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3 mb-md-0">
-                                    <label for="cantidad" class="form-label text-primary mb-1">Personas</label>
-                                    <select class="form-select p-3 border-primary" id="cantidad" required>
-                                        <option value="" selected disabled>Seleccione</option>
-                                        <option value="1">1 persona</option>
-                                        <option value="2">2 personas</option>
-                                        <option value="3">3 personas</option>
-                                        <option value="4">4 personas</option>
-                                        <option value="5">5 personas</option>
-                                        <option value="6">6 personas</option>
-                                        <option value="7">7 personas</option>
-                                        <option value="8">8 personas</option>
-                                        <option value="9">9 personas</option>
-                                    </select>
-                                </div>
+                            
+                            <!-- Teléfono -->
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="telefonoCliente" class="form-label text-primary mb-1">Teléfono celular</label>
+                                <input type="tel" class="form-control p-3 border-primary" id="telefonoCliente" placeholder="Ej: 55 1234 5678" required
+                                       style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
                             </div>
-                        </div>
-                        <div class="col-md-12 mt-4">
-                            <button class="btn btn-primary btn-block py-3" type="submit">
-                                <i class="fas fa-paper-plane me-2"></i> Enviar Reserva
-                            </button>
                         </div>
                     </div>
-                </form>
-            </div>
+                    
+                    <!-- Segunda fila de campos -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <!-- Cabaña -->
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="cabana" class="form-label text-primary mb-1">Cabaña</label>
+                                <select class="form-select p-3 border-primary" id="cabana" required
+                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
+                                    <option value="" selected disabled>Seleccione una opción</option>
+                                    <option value="Roberta's Chalett">Roberta's Chalett</option>
+                                    <option value="Roberta's Lille">Roberta's Lille</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Check-in -->
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="checkin" class="form-label text-primary mb-1">Check-in</label>
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="date" class="form-control p-3 border-primary" id="checkin" 
+                                           placeholder="Fecha de entrada" required
+                                           style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;"
+                                           onchange="setMinCheckoutDate()">
+                                </div>
+                            </div>
+                            
+                            <!-- Check-out -->
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="checkout" class="form-label text-primary mb-1">Check-out</label>
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="date" class="form-control p-3 border-primary" id="checkout" 
+                                           placeholder="Fecha de salida" required
+                                           style="border-radius: 8px; border: 1px solid #ced4da; transition: all 0.3s;">
+                                </div>
+                            </div>
+                            
+                            <!-- Cantidad de personas -->
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="cantidad" class="form-label text-primary mb-1">Personas</label>
+                                <select class="form-select p-3 border-primary" id="cantidad" required
+                                        style="border-radius: 8px; border: 1px solid #ced4da; height: auto; transition: all 0.3s;">
+                                    <option value="" selected disabled>Seleccione</option>
+                                    <option value="1">1 persona</option>
+                                    <option value="2">2 personas</option>
+                                    <option value="3">3 personas</option>
+                                    <option value="4">4 personas</option>
+                                    <option value="5">5 personas</option>
+                                    <option value="6">6 personas</option>
+                                    <option value="7">7 personas</option>
+                                    <option value="8">8 personas</option>
+                                    <option value="9">9 personas</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botón de envío -->
+                    <div class="col-md-12 mt-4">
+                        <button class="btn btn-primary btn-block py-3" type="submit" 
+                                style="border-radius: 8px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s;">
+                            <i class="fas fa-paper-plane me-2"></i> Enviar Reserva
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- Booking End -->
+</div>
+
+<script>
+function setMinCheckoutDate() {
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+    
+    if (checkinInput.value) {
+        checkoutInput.min = checkinInput.value;
+        
+        // Si la fecha actual de checkout es anterior a la nueva fecha de checkin
+        if (checkoutInput.value && new Date(checkoutInput.value) < new Date(checkinInput.value)) {
+            checkoutInput.value = '';
+        }
+    }
+}
+
+function formatDateForDisplay(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function enviarWhatsApp(event) {
+    event.preventDefault();
+    
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombreCliente').value;
+    const telefono = document.getElementById('telefonoCliente').value;
+    const cabana = document.getElementById('cabana').value;
+    const checkin = formatDateForDisplay(document.getElementById('checkin').value);
+    const checkout = formatDateForDisplay(document.getElementById('checkout').value);
+    const cantidad = document.getElementById('cantidad').value;
+    
+    // Validar que la fecha de checkout no sea anterior a la de checkin
+    const checkinDate = new Date(document.getElementById('checkin').value);
+    const checkoutDate = new Date(document.getElementById('checkout').value);
+    
+    if (checkoutDate <= checkinDate) {
+        alert('La fecha de salida debe ser posterior a la fecha de entrada');
+        return;
+    }
+    
+    // Crear mensaje para WhatsApp
+    const mensaje = `*Nueva Reserva*%0A%0A` +
+                    `*Nombre:* ${nombre}%0A` +
+                    `*Teléfono:* ${telefono}%0A` +
+                    `*Cabaña:* ${cabana}%0A` +
+                    `*Check-in:* ${checkin}%0A` +
+                    `*Check-out:* ${checkout}%0A` +
+                    `*Personas:* ${cantidad}`;
+    
+    // Número de WhatsApp de la empresa
+    const whatsappNumber = '525559024785';
+    
+    // Abrir WhatsApp con el mensaje
+    window.open(`https://wa.me/${whatsappNumber}?text=${mensaje}`, '_blank');
+    
+    // Opcional: Resetear el formulario después del envío
+    document.getElementById('reservaForm').reset();
+    
+    // Opcional: Mostrar mensaje de confirmación
+    alert('Gracias por tu reserva. Serás contactado pronto por WhatsApp.');
+}
+</script>
+<!-- Booking End -->
+
 
     <!-- Comparison Section Start -->
     <div class="container-fluid py-5">
@@ -938,4 +1029,5 @@
     </script>
 </body>
 </html>
+
 
